@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html><head>
+    <title>Predicting Heart Disease</title>
+</head>
+<title color="white" class="sc-htpNat lkDuMX" style="color: rgb(249, 249, 249); margin: 0px; padding: 0px 0px 24px;">Predicting Heart Disease</title>
+<style>
+  .buttonstyle {
+    background-color: rgb(0, 114, 210);
+    color: rgb(249,249,249);
+    font-size: 15px;
+    align-items: center;
+    line-height: 1.6;
+    max-width: max-content;
+    font-family: Avenir-Heavy, sans-serif;
+    font-style: normal;
+    letter-spacing: 1.5px;
+    border-style: none;
+    height: 40px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .buttonstyle:hover {
+    background-color: rgb(0, 114, 255);
+  }
+  .freeform {
+    background-color: rgb(19, 19, 19);
+    color: rgb(249,249,249);
+    border-style: solid;
+    border-color: rgb(249,249,249);
+    font-size: 15px;
+    align-items: center;
+    line-height: 1.6;
+    width: 300px;
+    border-radius: 4px;
+    font-family: Avenir-Heavy, sans-serif;
+    font-style: normal;
+    letter-spacing: 1.17px;
+    height: 36px;"
+  }
+  .freeform:focus {
+    background-color: rgb(75, 78, 90);
+  }
+  .dropdownstyle {
+    background-color: rgb(19, 19, 19);
+    color: rgb(249,249,249);
+    font-size: 15px;
+    align-items: center;
+    line-height: 1.6;
+    width: 300px;
+    font-family: Avenir-Heavy, sans-serif;
+    font-style: normal;
+    letter-spacing: 1.5px;
+    border-radius: 4px;
+    height: 36px;
+    cursor: pointer;
+  }
+</style>
+<body style="background-color: rgb(19, 19, 19); font-family: Avenir-Heavy, sans-serif; font-style: normal; letter-spacing: 1.5px; padding: 0 calc(3.5vw + 24px);"><br>
+  <h3 style="font-style: normal; font-size: 32px;color: rgb(249, 249, 249);">
+      Input Features for Predicting Heart Disease
+    </h3>
+  <h4 style="font-style: normal; font-size: 16px;color: rgb(249, 249, 249);">
+      by Casey Mott & Oliver Dizon
+    </h4>
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <label style="color: rgb(202, 202, 202);">Age</label><br>
+        <input class="freeform" type="text" name="age" required="required"><br>
+      <label style="color: rgb(202, 202, 202);">Sex</label><br>
+        <select class="dropdownstyle" id="Sex" name="Sex" method="GET" action="/">
+          <option value="0" selected>Male</option>
+          <option value="1">Female</option>
+        </select><br>
+      <label style="color: rgb(202, 202, 202);">ChestPainType</label><br>
+        <select class="dropdownstyle" name="ChestPainType" method="GET" action="/">
+          <option value="0" selected>NAP</option>
+          <option value="1">ATA</option>
+          <option value="2">ASY</option>
+          <option value="3">TA</option>
+        </select><br>
+
+      <label style="color: rgb(202, 202, 202);">RestingBP</label><br>
+        <input class="freeform" label="RestingBP" type="text" name="RestingBP" required="required"><br>
+      <label style="color: rgb(202, 202, 202);">Cholesterol</label><br>
+        <input class="freeform" label="Cholesterol" type="text" name="Cholesterol" required="required"><br>
+      <label style="color: rgb(202, 202, 202);">FastingBS</label><br>
+        <input class="freeform" label="FastingBS" type="text" name="FastingBS" required="required"><br>
+      <label style="color: rgb(202, 202, 202);">RestingECG</label><br>
+        <select class="dropdownstyle" name="RestingECG" method="GET" action="/">
+          <option value="0" selected>LVH</option>
+          <option value="1">Normal</option>
+          <option value="2">ST</option>
+        </select><br><br>
+      <label style="color: rgb(202, 202, 202);">MaxHR</label><br>
+        <input class="freeform" label="MaxHR" type="text" name="MaxHR" required="required"><br>
+      <label style="color: rgb(202, 202, 202);">ExerciseAngina</label><br>
+        <select class="dropdownstyle" id="ExerciseAngina" name="ExerciseAngina" method="GET" action="/">
+          <option value="0" selected>N</option>
+          <option value="1">Y</option>
+        </select><br>
+      <label style="color: rgb(202, 202, 202);">Oldpeak</label><br>
+        <input class="freeform" label="Oldpeak" type="text" name="Oldpeak" required="required"><br>
+      <label style="color: rgb(202, 202, 202);">ST_Slope</label><br>
+        <select class="dropdownstyle" id="ST_Slope" name="ST_Slope" method="GET" action="/">
+          <option value="0" selected>Down</option>
+          <option value="1">Flat</option>
+          <option value="2">Up</option>
+        </select><br><br>
+        <button class="buttonstyle" type="submit">Predict Heart Disease</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+</body></html>
