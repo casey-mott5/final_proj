@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html><head>
+    <title>Predicting Heart Disease</title>
+</head>
+<style>
+  .buttonstyle {
+    background-color: rgb(0, 114, 210);
+    color: rgb(249,249,249);
+    font-size: 15px;
+    align-items: center;
+    line-height: 1.6;
+    max-width: max-content;
+    font-family: Avenir-Heavy, sans-serif;
+    font-style: normal;
+    letter-spacing: 1.5px;
+    border-style: none;
+    height: 40px;
+    border-radius: 4px;
+    padding: 0px 16px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .buttonstyle:hover {
+    background-color: rgb(0, 114, 255);
+  }
+  .red-text {
+    font-style: normal;
+    font-size: 24px;
+    color: rgb(255, 0, 0);
+  }
+  .normal-text {
+    font-style: normal;
+    font-size: 24px;
+    color: rgb(19, 19, 19);
+  }
+</style>
+<title color="white" class="sc-htpNat lkDuMX" style="color: rgb(249, 249, 249); margin: 0px; padding: 0px 0px 24px;">Predicting Heart Disease</title>
+<body style="background-color: rgb(75, 78, 90); font-family: Avenir-Heavy, sans-serif; font-style: normal; letter-spacing: 1.5px; padding: 0 calc(3.5vw + 24px);"><br>
+
+  <h3 style="font-style: normal; font-size: 32px;color: rgb(249, 249, 249);">
+      Results
+    </h3>
+  <h4 style="font-style: normal; font-size: 16px;color: rgb(249, 249, 249);">
+      by Casey Mott & Oliver Dizon
+    </h4>
+  <h5><span class="normal-text">Based on our Logistic Regression model, we predict </span>
+      <span class="red-text">{{ prediction_text }}</span>
+      <span class="normal-text"> for this patient.</span>
+  </h5>
+   <a href="/" style="text-decoration:none">
+      <button class="buttonstyle" type="button" aria-label="" role="button" kind="primary">
+         HOME
+      </button>
+  </a>
+
+  <br><br>
+
+  <p style="text-align:center;">
+    <h2 style="font-style: normal; font-size: 32px;color: rgb(249, 249, 249);">Model Data</h2>
+    <img src="{{url_for('static', filename='confusion.png')}}" alt="Chart" width="500" height="400">
+    <img src="{{url_for('static', filename='features.png')}}" alt="Chart" width="500" height="400">
+  </p>
+
+</body></html>
